@@ -125,60 +125,6 @@ require_once '../includes/header.php';
                     <label style="position: absolute; inset: 0; background: rgba(26, 42, 108, 0.4); display: flex; align-items: center; justify-content: center; opacity: 0; transition: var(--transition); cursor: pointer;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0'">
                         <i class="fas fa-camera" style="color: var(--white); font-size: 1.5rem;"></i>
                         <input type="file" name="profile_pic" form="profile-form" style="display: none;">
-                    </label>
-                </div>
-                <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--text-dark); margin: 0 0 0.5rem 0;"><?php echo htmlspecialchars($profile['name']); ?></h3>
-                <div style="font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: var(--accent); background: rgba(26, 42, 108, 0.05); padding: 0.4rem 1rem; border-radius: 100px; display: inline-block; margin-bottom: 2rem;">
-                    Candidate Elite
-                </div>
-                <div style="padding: 1.25rem; background: #fafbfc; border-radius: 16px; text-align: left; border: 1px solid rgba(0,0,0,0.02);">
-                    <div style="font-size: 0.65rem; font-weight: 800; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.75rem;">Account Integrity</div>
-                    <div style="width: 100%; background: #edf2f7; height: 6px; border-radius: 100px; overflow: hidden;">
-                        <div style="background: #2ecc71; height: 100%; width: 100%; border-radius: 100px;"></div>
-                    </div>
-                    <div style="font-size: 0.7rem; color: #2ecc71; font-weight: 700; margin-top: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
-                        <i class="fas fa-check-circle"></i> Fully Verified
-                    </div>
-                </div>
-            </div>
-
-            <div class="premium-card" style="padding: 2rem;">
-                <h4 style="font-size: 1rem; font-weight: 800; color: var(--primary); margin: 0 0 1.5rem 0; display: flex; align-items: center; gap: 0.75rem;">
-                    <i class="fas fa-file-contract"></i> Portfolio / CV
-                </h4>
-                <div style="padding: 1.5rem; border: 2px dashed #e2e8f0; border-radius: 16px; text-align: center; background: #fafbfc;">
-                    <i class="fas fa-file-pdf" style="font-size: 2.5rem; color: #feb2b2; margin-bottom: 1rem;"></i>
-                    <p style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); margin-bottom: 1.5rem; word-break: break-all;">
-                        <?php echo $profile['resume_path'] ? basename($profile['resume_path']) : 'Awaiting credentials...'; ?>
-                    </p>
-                    <label style="display: block; width: 100%; padding: 0.85rem; background: var(--primary); color: var(--white); font-size: 0.75rem; font-weight: 800; border-radius: 10px; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; transition: var(--transition);" onmouseover="this.style.background='#2c3e50'" onmouseout="this.style.background='var(--primary)'">
-                        <?php echo $profile['resume_path'] ? 'Update Dossier' : 'Upload CV'; ?>
-                        <input type="file" name="resume" form="profile-form" style="display: none;">
-                    </label>
-                </div>
-            </div>
-        </div>
-
-        <!-- Form -->
-        <div>
-            <form action="profile.php" method="POST" id="profile-form" enctype="multipart/form-data">
-                <div class="premium-card" style="padding: 2.5rem; display: flex; flex-direction: column; gap: 2rem;">
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
-                        <div>
-                            <label style="display: block; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 0.75rem;">Access Identity</label>
-                            <input type="text" value="<?php echo htmlspecialchars($profile['name']); ?>" readonly style="width: 100%; padding: 1rem; border: 1px solid #edf2f7; border-radius: 12px; background: #f8fafc; color: #a0aec0; font-size: 0.9rem; font-weight: 600; cursor: not-allowed; font-family: 'Inter', sans-serif;">
-                        </div>
-                        <div>
-                            <label style="display: block; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 0.75rem;">Digital Address</label>
-                            <input type="email" value="<?php echo htmlspecialchars($profile['email']); ?>" readonly style="width: 100%; padding: 1rem; border: 1px solid #edf2f7; border-radius: 12px; background: #f8fafc; color: #a0aec0; font-size: 0.9rem; font-weight: 600; cursor: not-allowed; font-family: 'Inter', sans-serif;">
-                        </div>
-                    </div>
-
-                    <div>
-                        <label style="display: block; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 0.75rem;">Contact Information</label>
-                        <div style="position: relative;">
-                            <i class="fas fa-phone" style="position: absolute; left: 1rem; top: 1.15rem; color: var(--text-muted); font-size: 0.9rem;"></i>
-                            <input type="text" name="contact" value="<?php echo htmlspecialchars($profile['contact']); ?>" placeholder="+252 ..." style="width: 100%; padding: 1rem 1rem 1rem 2.75rem; border: 1px solid #e2e8f0; border-radius: 12px; outline: none; font-size: 0.9rem; font-weight: 600; font-family: 'Inter', sans-serif; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='#e2e8f0'">
                         </div>
                     </div>
 

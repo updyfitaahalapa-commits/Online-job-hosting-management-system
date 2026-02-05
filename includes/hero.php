@@ -1,38 +1,38 @@
 <!-- Premium Hero Section -->
-<div style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); padding: 10rem 2rem; text-align: center; position: relative; overflow: hidden; border-bottom: 1px solid rgba(255,255,255,0.05);">
-    <!-- Abstract Background Elements -->
-    <div style="position: absolute; top: -150px; right: -150px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%); z-index: 0;"></div>
-    <div style="position: absolute; bottom: -100px; left: -100px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(59, 130, 246, 0.05) 0%, transparent 70%); z-index: 0;"></div>
+<div style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); padding: 12rem 2rem; text-align: center; position: relative; overflow: hidden; border-bottom: 1px solid rgba(255,255,255,0.03);">
+    <!-- High-Impact Background Glows -->
+    <div style="position: absolute; top: -200px; right: -100px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%); z-index: 0; filter: blur(60px);"></div>
+    <div style="position: absolute; bottom: -150px; left: -100px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%); z-index: 0; filter: blur(40px);"></div>
     
     <div class="content-container" style="position: relative; z-index: 1;">
-        <div style="display: inline-flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1.5rem; background: rgba(59, 130, 246, 0.1); border-radius: 100px; color: var(--accent); font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 2.5rem; backdrop-filter: blur(10px); border: 1px solid rgba(59, 130, 246, 0.2);">
-            <i class="fas fa-rocket"></i>
-            <span>Premium Career Gateway</span>
+        <div style="display: inline-flex; align-items: center; gap: 0.75rem; padding: 1rem 2rem; background: rgba(255, 255, 255, 0.03); border-radius: 100px; color: var(--accent); font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 3rem; backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.05); box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+            <i class="fas fa-bolt"></i>
+            <span>The Future of Talent Acquisition</span>
         </div>
         
-        <h1 style="font-family: 'Poppins', sans-serif; font-size: clamp(3rem, 6vw, 5rem); font-weight: 900; color: var(--white); margin-bottom: 1.5rem; letter-spacing: -2px; line-height: 1.05;">
+        <h1 style="font-family: 'Poppins', sans-serif; font-size: clamp(3.5rem, 8vw, 6rem); font-weight: 900; color: var(--white); margin-bottom: 2rem; letter-spacing: -3px; line-height: 1; transform: skewX(-1deg);">
             Find Your Dream Job <br><span style="background: linear-gradient(to right, #60a5fa, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">in Somalia.</span>
         </h1>
         
-        <p style="font-size: 1.25rem; color: #94a3b8; line-height: 1.8; max-width: 800px; margin: 0 auto 4rem auto;">
-            JHMS connects elite Somali talent with industry leaders. <br class="hidden md:block">
-            Take the next step in your professional evolution with our intelligent recruitment platform.
+        <p style="font-size: 1.4rem; color: #94a3b8; line-height: 1.8; max-width: 900px; margin: 0 auto 5rem auto; font-weight: 500;">
+            JHMS is the next-generation ecosystem connecting Africa's brightest minds <br class="hidden md:block">
+            with world-class opportunities through intelligent automation.
         </p>
         
-        <div style="display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 5rem;">
+        <div style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 6rem;">
             <?php if (!isset($_SESSION['user_id'])): ?>
-                <a href="<?php echo BASE_URL; ?>auth/login.php" class="btn-premium btn-primary" style="padding: 1.25rem 2.5rem; font-size: 1.1rem; border-radius: 16px; box-shadow: 0 10px 20px rgba(26, 42, 108, 0.2);">
-                    <i class="fas fa-sign-in-alt"></i> Login to Account
+                <a href="<?php echo BASE_URL; ?>auth/login.php" class="btn-premium btn-primary" style="padding: 1.5rem 3.5rem; font-size: 1.25rem; border-radius: 20px; box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3); transform: translateY(0); transition: var(--transition);" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <i class="fas fa-sign-in-alt"></i> Login Now
                 </a>
-                <a href="<?php echo BASE_URL; ?>auth/register.php" class="btn-premium" style="padding: 1.25rem 2.5rem; font-size: 1.1rem; border-radius: 16px; background: var(--white); color: var(--primary); border: 2px solid var(--primary);">
-                    <i class="fas fa-user-plus"></i> Join the Platform
+                <a href="<?php echo BASE_URL; ?>auth/register.php" class="btn-premium" style="padding: 1.5rem 3.5rem; font-size: 1.25rem; border-radius: 20px; background: rgba(255,255,255,0.03); color: var(--white); border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); transition: var(--transition);" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='rgba(255,255,255,0.03)'">
+                    <i class="fas fa-user-plus"></i> Get Started
                 </a>
             <?php else: ?>
-                <a href="<?php echo BASE_URL; ?>seeker/jobs.php" class="btn-premium btn-primary" style="padding: 1.25rem 2.5rem; font-size: 1.1rem; border-radius: 16px; box-shadow: 0 10px 20px rgba(26, 42, 108, 0.2);">
-                    <i class="fas fa-search"></i> Find My Move
+                <a href="<?php echo BASE_URL; ?>seeker/jobs.php" class="btn-premium btn-primary" style="padding: 1.5rem 3.5rem; font-size: 1.25rem; border-radius: 20px; box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3);">
+                    <i class="fas fa-search"></i> Explore Roles
                 </a>
-                <a href="<?php echo BASE_URL; ?>employer/post_job.php" class="btn-premium" style="padding: 1.25rem 2.5rem; font-size: 1.1rem; border-radius: 16px; background: var(--white); color: var(--primary); border: 2px solid var(--primary);">
-                    <i class="fas fa-plus"></i> Post a Vacancy
+                <a href="<?php echo BASE_URL; ?>employer/post_job.php" class="btn-premium" style="padding: 1.5rem 3.5rem; font-size: 1.25rem; border-radius: 20px; background: rgba(255,255,255,0.03); color: var(--white); border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px);">
+                    <i class="fas fa-plus"></i> Post Opportunity
                 </a>
             <?php endif; ?>
         </div>

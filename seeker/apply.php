@@ -41,130 +41,117 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$already_applied) {
 require_once '../includes/header.php';
 ?>
 
-<div class="max-w-4xl mx-auto">
-    <div class="mb-10">
-        <a href="jobs.php" class="text-sm font-bold text-gray-500 hover:text-blue-600 transition flex items-center mb-4">
-            <i class="fas fa-arrow-left mr-2 text-xs"></i> Back to Jobs
-        </a>
-        <div class="flex items-center space-x-6">
-            <div class="w-20 h-20 bg-blue-600 rounded-3xl flex items-center justify-center text-white font-black text-3xl shadow-xl">
-                <?php echo strtoupper(substr($job['company_name'], 0, 1)); ?>
-            </div>
-            <div>
-                <h1 class="text-3xl font-extrabold text-gray-900"><?php echo $job['title']; ?></h1>
-                <p class="text-lg text-gray-500 font-medium"><?php echo $job['company_name']; ?> &bull; <?php echo $job['location']; ?></p>
-            </div>
+<div style="max-width: 1200px; margin: 0 auto;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem;">
+        <div>
+            <h1 style="font-family: 'Poppins', sans-serif; font-size: 2.25rem; font-weight: 900; color: var(--primary); letter-spacing: -1.5px; margin: 0 0 0.75rem 0;">Initiate Engagement</h1>
+            <p style="color: var(--text-muted); font-size: 1.1rem; font-weight: 500; margin: 0;">Submit your credentials for the <span style="color: var(--accent); font-weight: 800;"><?php echo htmlspecialchars($job['title']); ?></span> mandate.</p>
         </div>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+    <div style="display: grid; grid-template-columns: 1fr 400px; gap: 3rem;">
         <!-- Application Form -->
-        <div class="lg:col-span-2">
+        <div style="display: flex; flex-direction: column; gap: 2.5rem;">
             <?php if ($success): ?>
-                <div class="bg-green-50 border-l-4 border-green-500 p-8 rounded-3xl shadow-sm mb-8">
-                    <div class="flex">
-                        <div class="flex-shrink-0">
-                            <i class="fas fa-check-circle text-green-500 text-2xl"></i>
-                        </div>
-                        <div class="ml-4">
-                            <h3 class="text-lg font-bold text-green-800">Application Sent!</h3>
-                            <p class="text-green-700 mt-1">The employer has been notified and will review your profile shortly.</p>
-                            <div class="mt-4">
-                                <a href="my_applications.php" class="text-green-800 font-bold underline">Track Application Status</a>
-                            </div>
-                        </div>
+                <div class="premium-card" style="background: #f0fdf4; border: 1px solid #dcfce7; text-align: center; padding: 4rem 2rem;">
+                    <div style="width: 80px; height: 80px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem auto; color: #166534; font-size: 2rem; box-shadow: var(--shadow-sm);">
+                        <i class="fas fa-circle-check"></i>
                     </div>
+                    <h3 style="font-size: 1.5rem; font-weight: 900; color: #166534; margin-bottom: 1rem;">Submission Secure</h3>
+                    <p style="color: #15803d; font-weight: 600; margin-bottom: 2rem;">Your professional credentials have been successfully transmitted to the Employer.</p>
+                    <a href="my_applications.php" class="btn-premium btn-primary" style="padding: 1rem 2.5rem; border-radius: 16px;">Track Engagement Status</a>
                 </div>
             <?php elseif ($already_applied): ?>
-                <div class="bg-blue-50 border-l-4 border-blue-500 p-8 rounded-3xl shadow-sm mb-8 text-center py-16">
-                    <i class="fas fa-info-circle text-blue-500 text-5xl mb-4"></i>
-                    <h3 class="text-xl font-bold text-blue-800 mb-2">You already applied</h3>
-                    <p class="text-blue-700">Your application for this position is currently being processed.</p>
-                    <a href="my_applications.php" class="mt-6 inline-block bg-blue-600 text-white font-bold px-8 py-3 rounded-xl hover:bg-blue-700 transition">View My Applications</a>
+                <div class="premium-card" style="background: #f8fafc; border: 1px solid #e2e8f0; text-align: center; padding: 4rem 2rem;">
+                    <div style="width: 80px; height: 80px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem auto; color: var(--accent); font-size: 2rem; box-shadow: var(--shadow-sm);">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <h3 style="font-size: 1.5rem; font-weight: 900; color: var(--primary); margin-bottom: 1rem;">Existing Engagement</h3>
+                    <p style="color: var(--text-muted); font-weight: 600; margin-bottom: 2rem;">You have already initiated an application for this vacancy.</p>
+                    <a href="my_applications.php" class="btn-premium btn-primary" style="padding: 1rem 2.5rem; border-radius: 16px;">Review Submission</a>
                 </div>
             <?php else: ?>
-                <form action="apply.php?id=<?php echo $job_id; ?>" method="POST" class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm space-y-6">
+                <form action="apply.php?id=<?php echo $job_id; ?>" method="POST" class="premium-card" style="padding: 3rem; border: 1px solid rgba(255,255,255,0.8); display: flex; flex-direction: column; gap: 2.5rem;">
                     <div>
-                        <h3 class="text-lg font-bold text-gray-900 mb-4">Submit Application</h3>
-                        <label class="block text-sm font-bold text-gray-700 mb-2">Cover Letter (Optional)</label>
-                        <textarea name="cover_letter" rows="8" class="w-full px-4 py-3 rounded-2xl border border-gray-100 bg-gray-50 focus:ring-2 focus:ring-blue-600 outline-none transition text-gray-700" placeholder="Introduce yourself and explain why you're a great fit for this role..."></textarea>
+                        <label style="display: block; font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 1.25rem;">Strategic Cover Note (Optional)</label>
+                        <textarea name="cover_letter" rows="8" 
+                            style="width: 100%; padding: 1.5rem; border-radius: 20px; border: 1px solid #e2e8f0; outline: none; transition: var(--transition); font-family: inherit; font-size: 1rem; background: #f8fafc; font-weight: 500; line-height: 1.7;"
+                            placeholder="Delineate your strategic fit for this institutional role..."
+                            onfocus="this.style.borderColor='var(--accent)'; this.style.background='var(--white)';"></textarea>
                     </div>
                     
-                    <div class="bg-gray-50 p-6 rounded-2xl border border-dashed border-gray-200">
-                        <div class="flex items-center">
-                            <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-red-500 shadow-sm mr-4">
-                                <i class="fas fa-file-pdf text-xl"></i>
-                            </div>
-                            <div>
-                                <p class="text-sm font-bold text-gray-900">Your Current Resume</p>
-                                <p class="text-xs text-gray-400">Successfully uploaded in profile</p>
-                            </div>
-                            <a href="profile.php" class="ml-auto text-xs font-bold text-blue-600 hover:underline">Update</a>
+                    <div style="background: #f8fafc; padding: 1.5rem; border-radius: 20px; border: 1px dashed #cbd5e1; display: flex; align-items: center; gap: 1.25rem;">
+                        <div style="width: 50px; height: 50px; background: var(--white); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #ef4444; border: 1px solid #fee2e2; font-size: 1.25rem; box-shadow: var(--shadow-sm);">
+                            <i class="fas fa-file-pdf"></i>
                         </div>
+                        <div style="flex: 1;">
+                            <div style="font-size: 0.9rem; font-weight: 800; color: var(--text-dark);">Verified Resume Attachment</div>
+                            <div style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">System will attach your primary CV dossier.</div>
+                        </div>
+                        <a href="profile.php" style="font-size: 0.75rem; font-weight: 800; color: var(--accent); text-decoration: none; text-transform: uppercase; letter-spacing: 1px;">Update</a>
                     </div>
 
-                    <button type="submit" class="w-full bg-blue-600 text-white font-black py-4 rounded-2xl hover:bg-blue-700 transition shadow-xl shadow-blue-100 transform active:scale-[0.98]">
-                        Confirm Submission
+                    <button type="submit" class="btn-premium btn-primary" style="justify-content: center; padding: 1.25rem; border-radius: 20px; font-weight: 900; font-size: 1.1rem; box-shadow: 0 15px 30px rgba(59, 130, 246, 0.2);">
+                        Transmit Application
                     </button>
                 </form>
             <?php endif; ?>
             
-            <div class="mt-8 bg-white p-8 rounded-3xl border border-gray-100 shadow-sm">
-                <h3 class="text-lg font-bold text-gray-900 mb-4">Job Description</h3>
-                <div class="prose prose-blue max-w-none text-gray-600 leading-relaxed">
-                    <?php echo nl2br($job['description']); ?>
+            <div class="premium-card" style="padding: 3rem; border: 1px solid rgba(255,255,255,0.8);">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; padding-bottom: 1.25rem; border-bottom: 1px solid #f1f5f9;">
+                    <div style="width: 36px; height: 36px; background: rgba(59, 130, 246, 0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--accent);">
+                        <i class="fas fa-align-left" style="font-size: 0.9rem;"></i>
+                    </div>
+                    <h3 style="margin: 0; font-size: 1.15rem; font-weight: 900; color: var(--primary); letter-spacing: -0.5px;">Mandate Specifications</h3>
+                </div>
+                <div style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.8; font-weight: 500;">
+                    <?php echo nl2br(htmlspecialchars($job['description'])); ?>
                 </div>
             </div>
         </div>
 
         <!-- Job Sidebar Info -->
-        <div class="lg:col-span-1 space-y-6">
-            <div class="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm">
-                <h3 class="font-bold text-gray-900 mb-6">Position Details</h3>
-                <div class="space-y-6">
-                    <div class="flex items-start">
-                        <div class="w-10 h-10 bg-indigo-50 rounded-xl flex items-center justify-center text-indigo-600 mr-4">
+        <div style="display: flex; flex-direction: column; gap: 2rem;">
+            <div class="premium-card" style="padding: 2.5rem; border: 1px solid rgba(255,255,255,0.8);">
+                <h3 style="font-size: 0.75rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 2rem;">Institutional Intel</h3>
+                
+                <div style="display: flex; flex-direction: column; gap: 2rem;">
+                    <div style="display: flex; align-items: center; gap: 1.25rem;">
+                        <div style="width: 45px; height: 45px; background: #f0fdf4; border-radius: 14px; display: flex; align-items: center; justify-content: center; color: #166534; font-size: 1.1rem;">
                             <i class="fas fa-money-bill-wave"></i>
                         </div>
                         <div>
-                            <p class="text-xs font-bold text-gray-400 uppercase">Salary Range</p>
-                            <p class="text-sm font-bold text-gray-900"><?php echo $job['salary_range']; ?></p>
+                            <div style="font-size: 0.65rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">Remuneration</div>
+                            <div style="font-size: 0.95rem; font-weight: 800; color: var(--text-dark);"><?php echo htmlspecialchars($job['salary_range']); ?></div>
                         </div>
                     </div>
-                    <div class="flex items-start">
-                        <div class="w-10 h-10 bg-purple-50 rounded-xl flex items-center justify-center text-purple-600 mr-4">
+
+                    <div style="display: flex; align-items: center; gap: 1.25rem;">
+                        <div style="width: 45px; height: 45px; background: #f5f3ff; border-radius: 14px; display: flex; align-items: center; justify-content: center; color: #5b21b6; font-size: 1.1rem;">
                             <i class="fas fa-clock"></i>
                         </div>
                         <div>
-                            <p class="text-xs font-bold text-gray-400 uppercase">Employment</p>
-                            <p class="text-sm font-bold text-gray-900"><?php echo $job['job_type']; ?></p>
+                            <div style="font-size: 0.65rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">Engagement</div>
+                            <div style="font-size: 0.95rem; font-weight: 800; color: var(--text-dark);"><?php echo htmlspecialchars($job['job_type']); ?></div>
                         </div>
                     </div>
-                    <div class="flex items-start">
-                        <div class="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 mr-4">
+
+                    <div style="display: flex; align-items: center; gap: 1.25rem;">
+                        <div style="width: 45px; height: 45px; background: #eff6ff; border-radius: 14px; display: flex; align-items: center; justify-content: center; color: #1e40af; font-size: 1.1rem;">
                             <i class="fas fa-layer-group"></i>
                         </div>
                         <div>
-                            <p class="text-xs font-bold text-gray-400 uppercase">Category</p>
-                            <p class="text-sm font-bold text-gray-900"><?php echo $job['category']; ?></p>
-                        </div>
-                    </div>
-                    <div class="flex items-start">
-                        <div class="w-10 h-10 bg-green-50 rounded-xl flex items-center justify-center text-green-600 mr-4">
-                            <i class="fas fa-calendar-alt"></i>
-                        </div>
-                        <div>
-                            <p class="text-xs font-bold text-gray-400 uppercase">Date Posted</p>
-                            <p class="text-sm font-bold text-gray-900"><?php echo date('M d, Y', strtotime($job['created_at'])); ?></p>
+                            <div style="font-size: 0.65rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">Vertical</div>
+                            <div style="font-size: 0.95rem; font-weight: 800; color: var(--text-dark);"><?php echo htmlspecialchars($job['category']); ?></div>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <div class="bg-indigo-900 p-8 rounded-3xl text-white shadow-xl relative overflow-hidden">
-                <i class="fas fa-shield-alt absolute -right-4 -bottom-4 text-8xl opacity-10 rotate-12"></i>
-                <h3 class="text-lg font-bold mb-2">Safety Tip</h3>
-                <p class="text-indigo-200 text-xs leading-relaxed">Never share bank details or pay any fees for job applications. Legitimate employers will never ask for money.</p>
+            <div style="background: var(--primary); padding: 3rem 2.5rem; border-radius: 24px; color: var(--white); position: relative; overflow: hidden; box-shadow: var(--shadow-lg);">
+                <i class="fas fa-shield-halved" style="position: absolute; right: -20px; bottom: -20px; font-size: 8rem; opacity: 0.05; transform: rotate(15deg);"></i>
+                <h3 style="font-size: 1.25rem; font-weight: 900; margin: 0 0 1rem 0; letter-spacing: -0.5px;">Institutional Safety</h3>
+                <p style="font-size: 0.9rem; color: #94a3b8; font-weight: 500; line-height: 1.6; margin: 0;">Never disclose sensitive financial data or transmit currency during the application phase. Our network maintains strict professional auditing.</p>
             </div>
         </div>
     </div>

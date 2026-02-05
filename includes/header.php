@@ -38,26 +38,24 @@ $is_auth = (strpos($current_url, '/auth/') !== false);
         :root {
             --primary: #1e293b;
             --primary-light: #334155;
-            --secondary: #f8fafc;
+            --secondary: #f1f5f9;
             --accent: #3b82f6;
             --text-dark: #0f172a;
             --text-muted: #64748b;
             --white: #ffffff;
-            --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
-            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
-            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --radius-2xl: 1.5rem;
         }
 
         body { 
-            font-family: 'Inter', 'Poppins', sans-serif; 
+            font-family: 'Poppins', 'Inter', sans-serif; 
             background-color: var(--secondary); 
             color: var(--text-dark);
             margin: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            overflow-x: hidden;
+            line-height: 1.5;
         }
 
         /* Premium Navbar */
@@ -112,8 +110,9 @@ $is_auth = (strpos($current_url, '/auth/') !== false);
             transition: var(--transition);
             z-index: 1200;
             transform: translateX(-100%);
-            box-shadow: var(--shadow-lg);
-            padding-top: 80px;
+            box-shadow: 10px 0 30px rgba(0,0,0,0.1);
+            padding: 2rem 0;
+            border-right: 1px solid rgba(255,255,255,0.05);
         }
 
         body.sidebar-open #sidebar { transform: translateX(0); }
@@ -132,7 +131,7 @@ $is_auth = (strpos($current_url, '/auth/') !== false);
 
         .dashboard-content { 
             margin-top: 70px;
-            padding: <?php echo ($is_home || $is_auth) ? '0' : '2rem'; ?>;
+            padding: <?php echo ($is_home || $is_auth) ? '0' : '3rem'; ?>;
             flex-grow: 1;
             transition: var(--transition);
             width: 100%;
@@ -140,6 +139,10 @@ $is_auth = (strpos($current_url, '/auth/') !== false);
             min-height: calc(100vh - 70px);
             display: flex;
             flex-direction: column;
+            max-width: 1600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
         }
 
         .content-container {
@@ -207,18 +210,18 @@ $is_auth = (strpos($current_url, '/auth/') !== false);
     <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
     <!-- Top Navbar -->
-    <nav>
-        <div style="display: flex; align-items: center; gap: 1rem;">
+    <nav style="backdrop-filter: blur(20px); background: rgba(255, 255, 255, 0.8); border-bottom: 1px solid rgba(226, 232, 240, 0.8); sticky; top: 0; z-index: 1000;">
+        <div style="display: flex; align-items: center; gap: 1.5rem;">
             <?php if ($is_dashboard): ?>
-                <button id="sidebar-toggle" style="background: none; border: none; font-size: 1.25rem; cursor: pointer; color: var(--text-dark); display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 10px; transition: var(--transition);" class="hover:bg-gray-100">
-                    <i class="fas fa-bars"></i>
+                <button id="sidebar-toggle" style="background: var(--white); border: 1px solid #e2e8f0; font-size: 1.1rem; cursor: pointer; color: var(--text-dark); display: flex; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: 12px; transition: var(--transition); box-shadow: var(--shadow-sm);" class="hover:border-primary">
+                    <i class="fas fa-bars-staggered"></i>
                 </button>
             <?php endif; ?>
-            <a href="<?php echo BASE_URL; ?>index.php" class="logo-container">
-                <div class="logo-icon">
-                    <i class="fas fa-briefcase"></i>
+            <a href="<?php echo BASE_URL; ?>index.php" class="logo-container" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none;">
+                <div class="logo-icon" style="background: linear-gradient(135deg, var(--primary), var(--accent)); width: 42px; height: 42px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--white); box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);">
+                    <i class="fas fa-bolt" style="font-size: 1.2rem;"></i>
                 </div>
-                <span>JHMS</span>
+                <span style="font-weight: 900; font-size: 1.4rem; color: var(--primary); letter-spacing: -1px; font-family: 'Poppins', sans-serif;">JHMS<span style="color: var(--accent);">.</span></span>
             </a>
         </div>
         

@@ -37,75 +37,80 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 require_once '../includes/header.php';
 ?>
 
-<div style="min-height: 85vh; display: flex; align-items: center; justify-content: center; padding: 2rem;">
-    <div style="width: 100%; max-width: 450px;">
-        <div class="premium-card" style="padding: 3rem 2.5rem; text-align: center;">
-            <div class="logo-icon" style="margin: 0 auto 1.5rem auto; width: 60px; height: 60px; font-size: 1.5rem;">
-                <i class="fas fa-briefcase"></i>
+<div style="min-height: 90vh; display: flex; align-items: center; justify-content: center; padding: 2rem; background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.05), transparent), radial-gradient(circle at bottom left, rgba(59, 130, 246, 0.05), transparent);">
+    <div style="width: 100%; max-width: 480px;">
+        <div class="premium-card" style="padding: 4rem 3rem; position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,0.8);">
+            <!-- Decorative Glow -->
+            <div style="position: absolute; top: -50px; right: -50px; width: 100px; height: 100px; background: var(--accent); filter: blur(60px); opacity: 0.1;"></div>
+
+            <div style="text-align: center; margin-bottom: 3.5rem;">
+                <div style="background: linear-gradient(135deg, var(--primary), var(--accent)); width: 64px; height: 64px; border-radius: 18px; display: flex; align-items: center; justify-content: center; color: var(--white); margin: 0 auto 1.5rem auto; box-shadow: 0 10px 25px rgba(59, 130, 246, 0.2); font-size: 1.5rem;">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h1 style="font-size: 2rem; font-weight: 900; color: var(--primary); margin-bottom: 0.75rem; letter-spacing: -1px; font-family: 'Poppins', sans-serif;">Welcome Back</h1>
+                <p style="color: var(--text-muted); font-size: 0.95rem; font-weight: 500;">Secure access to your professional gateway</p>
             </div>
-            
-            <h1 style="font-size: 1.75rem; font-weight: 800; color: var(--primary); margin-bottom: 0.5rem; letter-spacing: -0.5px;">Welcome Back</h1>
-            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2.5rem;">Access your professional job hunting dashboard</p>
 
             <?php if ($error): ?>
-                <div style="background: #fff5f5; border-left: 4px solid #ff7675; padding: 1rem; border-radius: 8px; margin-bottom: 2rem; text-align: left;">
-                    <p style="color: #c0392b; font-size: 0.85rem; margin: 0; font-weight: 600;"><?php echo $error; ?></p>
+                <div style="background: #fef2f2; border: 1px solid #fee2e2; padding: 1.25rem; border-radius: 16px; margin-bottom: 2.5rem; display: flex; align-items: center; gap: 0.75rem; color: #991b1b; font-size: 0.9rem; font-weight: 600;">
+                    <i class="fas fa-circle-exclamation"></i>
+                    <span><?php echo $error; ?></span>
                 </div>
             <?php endif; ?>
 
-            <form action="login.php" method="POST" style="text-align: left; display: flex; flex-direction: column; gap: 1.5rem;">
+            <form action="login.php" method="POST" style="display: flex; flex-direction: column; gap: 2rem;">
                 <div>
-                    <label style="display: block; font-size: 0.8rem; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.75rem;">Email Address</label>
+                    <label style="display: block; font-size: 0.7rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 1rem;">Professional Email</label>
                     <div style="position: relative;">
-                        <i class="fas fa-envelope" style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 0.9rem;"></i>
+                        <i class="fas fa-envelope" style="position: absolute; left: 1.25rem; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 1rem; opacity: 0.5;"></i>
                         <input type="email" name="email" required placeholder="name@company.com" 
-                            style="width: 100%; padding: 1rem 1rem 1rem 3rem; border-radius: 12px; border: 1px solid #e1e8ed; outline: none; transition: var(--transition); font-family: inherit; font-size: 0.95rem; box-sizing: border-box;"
-                            onfocus="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 0 0 4px rgba(26, 42, 108, 0.05)'"
-                            onblur="this.style.borderColor='#e1e8ed'; this.style.boxShadow='none'">
+                            style="width: 100%; padding: 1.1rem 1.1rem 1.1rem 3.5rem; border-radius: 18px; border: 1px solid #e2e8f0; outline: none; transition: var(--transition); font-family: inherit; font-size: 1rem; background: #f8fafc; font-weight: 500;"
+                            onfocus="this.style.borderColor='var(--accent)'; this.style.background='var(--white)'; this.style.boxShadow='0 0 0 4px rgba(59, 130, 246, 0.1)'"
+                            onblur="this.style.borderColor='#e2e8f0'; this.style.background='#f8fafc'; this.style.boxShadow='none'">
                     </div>
                 </div>
 
                 <div>
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
-                        <label style="font-size: 0.8rem; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 1px;">Password</label>
-                        <a href="#" style="font-size: 0.75rem; color: var(--accent); font-weight: 700; text-decoration: none;">Forgot?</a>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                        <label style="font-size: 0.7rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.5px;">Security Password</label>
+                        <a href="#" style="font-size: 0.75rem; color: var(--accent); font-weight: 700; text-decoration: none;" class="hover:underline">Recovery?</a>
                     </div>
                     <div style="position: relative;">
-                        <i class="fas fa-lock" style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 0.9rem;"></i>
+                        <i class="fas fa-lock" style="position: absolute; left: 1.25rem; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 1rem; opacity: 0.5;"></i>
                         <input type="password" name="password" id="password_input" required placeholder="••••••••" 
-                            style="width: 100%; padding: 1rem 3rem 1rem 3rem; border-radius: 12px; border: 1px solid #e1e8ed; outline: none; transition: var(--transition); font-family: inherit; font-size: 0.95rem; box-sizing: border-box;"
-                            onfocus="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 0 0 4px rgba(26, 42, 108, 0.05)'"
-                            onblur="this.style.borderColor='#e1e8ed'; this.style.boxShadow='none'">
-                        <button type="button" onclick="togglePassword('password_input', 'eye_icon')" style="position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: var(--text-muted); font-size: 0.9rem; padding: 0.25rem;">
+                            style="width: 100%; padding: 1.1rem 3.5rem 1.1rem 3.5rem; border-radius: 18px; border: 1px solid #e2e8f0; outline: none; transition: var(--transition); font-family: inherit; font-size: 1rem; background: #f8fafc; font-weight: 500;"
+                            onfocus="this.style.borderColor='var(--accent)'; this.style.background='var(--white)'; this.style.boxShadow='0 0 0 4px rgba(59, 130, 246, 0.1)'"
+                            onblur="this.style.borderColor='#e2e8f0'; this.style.background='#f8fafc'; this.style.boxShadow='none'">
+                        <button type="button" onclick="togglePassword('password_input')" style="position: absolute; right: 1.25rem; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: var(--text-muted); font-size: 1rem; padding: 0.25rem; opacity: 0.5;">
                             <i class="fas fa-eye" id="eye_icon"></i>
                         </button>
                     </div>
                 </div>
 
-                <div style="display: flex; align-items: center; gap: 0.5rem; margin-top: -0.5rem;">
-                    <input type="checkbox" id="remember" style="width: 16px; height: 16px; accent-color: var(--primary);">
-                    <label for="remember" style="font-size: 0.85rem; color: var(--text-muted); font-weight: 500;">Remember me for 30 days</label>
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                    <input type="checkbox" id="remember" style="width: 18px; height: 18px; accent-color: var(--accent); border-radius: 6px; cursor: pointer;">
+                    <label for="remember" style="font-size: 0.9rem; color: var(--text-muted); font-weight: 600; cursor: pointer;">Authorize for 30 days</label>
                 </div>
 
-                <button type="submit" class="btn-premium btn-primary" style="width: 100%; justify-content: center; padding: 1.1rem; font-size: 1rem; border-radius: 14px; margin-top: 0.5rem;">
-                    Sign In to Account
+                <button type="submit" class="btn-premium btn-primary" style="width: 100%; justify-content: center; padding: 1.25rem; font-size: 1.1rem; border-radius: 18px; font-weight: 800; box-shadow: 0 15px 30px rgba(59, 130, 246, 0.25); transform: translateY(0); transition: var(--transition);" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+                    Sign In to Portal
                 </button>
             </form>
 
-            <div style="margin-top: 2.5rem; pt: 2rem; border-top: 1px solid #f8f9fa;">
-                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 1rem; display: flex; flex-direction: column; gap: 0.75rem;">
-                    <span>New to the platform? <a href="register.php" style="color: var(--primary); font-weight: 700; text-decoration: none; border-bottom: 2px solid rgba(26, 42, 108, 0.1); transition: var(--transition);">Create Account</a></span>
-                    <a href="../index.php" style="color: var(--text-muted); font-size: 0.85rem; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; opacity: 0.7;" class="hover:opacity-100">
-                        <i class="fas fa-arrow-left"></i> Back to Home Page
-                    </a>
+            <div style="margin-top: 3.5rem; pt: 2rem; border-top: 1px solid #f1f5f9; text-align: center;">
+                <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 1.5rem; font-weight: 600;">
+                    New candidate? <a href="register.php" style="color: var(--accent); font-weight: 800; text-decoration: none;" class="hover:underline">Initialize Account</a>
                 </p>
+                <a href="../index.php" style="margin-top: 1.5rem; display: inline-flex; align-items: center; gap: 0.5rem; color: var(--text-muted); font-size: 0.85rem; text-decoration: none; font-weight: 700; opacity: 0.6;" class="hover:opacity-100">
+                    <i class="fas fa-arrow-left"></i> Return to Terminal
+                </a>
             </div>
         </div>
 
-        <div style="margin-top: 2rem; text-align: center;">
-            <div style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; background: rgba(26, 42, 108, 0.03); border-radius: 100px; color: var(--primary); font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">
-                <i class="fas fa-shield-alt"></i>
-                <span>Enterprise Grade Security Enabled</span>
+        <div style="margin-top: 2.5rem; text-align: center; opacity: 0.5;">
+            <div style="display: inline-flex; align-items: center; gap: 0.75rem; color: var(--primary); font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px;">
+                <i class="fas fa-lock"></i>
+                <span>Quantum Encryption Enabled</span>
             </div>
         </div>
     </div>
